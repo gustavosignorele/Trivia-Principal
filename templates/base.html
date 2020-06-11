@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Trivia</title>
+    </head>
+    <body>
+        <span>
+            <a href="{{ url_for('index_trivia') }}">Inicio</a>
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('login') }}">Iniciar sesión</a>
+            {% else %}
+            <a href="{{ url_for('logout') }}">Cerrar sesión</a> Usuario {{ current_user.name }}
+            {% endif %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+              {% for message in messages %}
+              <li>{{ message }}</li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

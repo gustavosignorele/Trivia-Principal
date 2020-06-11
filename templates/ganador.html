@@ -1,0 +1,12 @@
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <h3>Su última respuesta es correcta! Gano!</h3>
+    <br>
+    <h3>El tiempo total de la jugada fue:</h3>
+    <br>
+    {{ session['tiempo_total'] }}
+    <br>
+    <h3><a href="{{ url_for('index') }}">Iniciar el Juego nuevamente</a></h3>
+    {% endblock %}
+</body>
